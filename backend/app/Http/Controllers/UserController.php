@@ -71,6 +71,14 @@ class UserController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $customer = User::find($id);
+
+        if (!$customer) {
+            return response()->json(['error' => 'Customer not found'], 404);
+        }
+
+        $customer->delete();
+
+        return response()->json(['message' => 'Customer deleted successfully'], 200);
     }
 }
