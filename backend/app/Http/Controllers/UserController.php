@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -11,7 +12,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -19,8 +20,16 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        
+        $validatedData = $request->validate([
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email',
+            'contact_number' => 'nullable|string'
+        ]);
+    
+        $user = User::create($validatedData);
+    
+        return response()->json(['message' => 'User created successfully', 'user' => $user], 201);
     }
 
     /**
