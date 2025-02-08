@@ -23,7 +23,7 @@ class UserController extends Controller
             });
         }
 
-        $customers = $query->get();
+        $customers = $query->orderByDesc('created_at')->get();
         return response()->json($customers, 200);
     }
 
