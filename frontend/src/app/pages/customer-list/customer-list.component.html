@@ -21,7 +21,7 @@
         <td>{{ customer.first_name }}</td>
         <td>{{ customer.last_name }}</td>
         <td>{{ customer.email }}</td>
-        <td>{{ customer.contact_number }}</td>
+        <td>{{ customer.contact_number ?? 'No contact number provided' }}</td>
         <td>
           <div class="d-flex flex-row gap-2">
             <button class="btn btn-primary" [routerLink]="['customer/', customer.id]">View</button>

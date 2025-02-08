@@ -18,7 +18,10 @@
       <p><span class="fw-semibold">Email:</span> {{ customer.last_name }}</p>
     </div>
     <div class="">
-      <p><span class="fw-semibold">Contact number:</span> {{ customer.contact_number }}</p>
+      <p>
+        <span class="fw-semibold">Contact number:</span>
+        {{ customer.contact_number ?? 'No contact number provided' }}
+      </p>
     </div>
   </div>
 </div>
