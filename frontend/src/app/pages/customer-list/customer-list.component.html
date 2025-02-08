@@ -6,6 +6,16 @@
     </div>
   </div>
 
+  <div class="mb-4">
+    <input
+      type="text"
+      [(ngModel)]="searchQuery"
+      (input)="onSearchChange()"
+      placeholder="Search by name or email..."
+      class="form-control"
+    />
+  </div>
+
   <table class="table w-full">
     <thead>
       <tr>

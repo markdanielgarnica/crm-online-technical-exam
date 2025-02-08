@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -11,8 +11,12 @@ export class CustomerService {
   constructor(private http: HttpClient) {}
 
   // Fetch all customers
-  getCustomers(): Observable<any[]> {
-    return this.http.get<any[]>(this.apiUrl);
+  getCustomers(search: string = ''): Observable<any> {
+    let params = new HttpParams();
+    if (search) {
+      params = params.set('search', search);
+    }
+    return this.http.get<any>(this.apiUrl, { params });
   }
 
   // Create a new customer
