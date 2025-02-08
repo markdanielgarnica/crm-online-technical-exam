@@ -50,4 +50,19 @@ export class CustomerViewComponent {
       },
     });
   }
+
+  deleteCustomer() {
+    if (confirm('Are you sure you want to delete this customer?')) {
+      this.customerService.deleteCustomer(this.customerId).subscribe({
+        next: () => {
+          alert('Customer deleted successfully!');
+          this.router.navigate(['/']); // Redirect back to customer list
+        },
+        error: (err) => {
+          alert('Failed to delete customer. Please try again.');
+          console.error('Delete error:', err);
+        },
+      });
+    }
+  }
 }

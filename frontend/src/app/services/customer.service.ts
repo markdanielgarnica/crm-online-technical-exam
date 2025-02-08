@@ -29,4 +29,9 @@ export class CustomerService {
   updateCustomer(id: number, customerData: any): Observable<any> {
     return this.http.put<any>(`${this.apiUrl}/${id}`, customerData);
   }
+
+  // Delete a customer
+  deleteCustomer(id: number): Observable<any> {
+    return this.http.delete<any>(`${this.apiUrl}/${id}`);
+  }
 }

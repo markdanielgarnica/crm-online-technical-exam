@@ -3,7 +3,7 @@
     <span class="fs-3">Customer Details</span>
     <div class="d-flex flex-row gap-2">
       <button class="btn btn-primary" [routerLink]="['../edit', customer.id]">Edit</button>
-      <button class="btn btn-danger">Delete</button>
+      <button class="btn btn-danger" (click)="deleteCustomer()">Delete</button>
     </div>
   </div>
 
