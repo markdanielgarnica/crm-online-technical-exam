@@ -21,7 +21,7 @@ export class CustomerCreateComponent {
 
   createCustomer() {
     this.errors = {}; // Reset errors before submitting
-    console.log(this.customerData);
+
     this.customerService.createCustomer(this.customerData).subscribe({
       next: () => {
         alert('Customer created successfully!');
@@ -31,7 +31,6 @@ export class CustomerCreateComponent {
         if (err.status === 422) {
           // Laravel returns validation errors with status code 422
           this.errors = err.error.errors; // Assign the error messages
-          console.log(this.errors);
         } else {
           console.error('Error creating customer:', err);
           alert('Something went wrong. Please try again.');
