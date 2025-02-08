@@ -19,4 +19,9 @@ export class CustomerService {
   createCustomer(customerData: any): Observable<any> {
     return this.http.post<any>(this.apiUrl, customerData);
   }
+
+  // Get a single customer by ID
+  getCustomerById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  }
 }
