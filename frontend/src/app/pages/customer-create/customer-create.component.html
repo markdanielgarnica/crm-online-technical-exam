@@ -1,30 +1,62 @@
 <div class="w-full">
+  <a [routerLink]="['/']">Back</a>
   <span class="fs-3 mb-4 d-block">Create Customer</span>
 
-  <form class="">
+  <form (submit)="createCustomer()">
     <div class="row">
       <div class="col">
         <div class="mb-3">
           <label for="firstName" class="form-label">First name</label>
-          <input type="text" class="form-control" id="firstName" />
+          <input
+            type="text"
+            class="form-control"
+            id="firstName"
+            [(ngModel)]="customerData.first_name"
+            name="firstName"
+            required
+          />
+          <span *ngIf="errors.first_name" class="text-danger"> {{ errors.first_name }} </span>
         </div>
       </div>
       <div class="col">
         <div class="mb-3">
           <label for="lastName" class="form-label">Last name</label>
-          <input type="text" class="form-control" id="lastName" />
+          <input
+            type="text"
+            class="form-control"
+            id="lastName"
+            [(ngModel)]="customerData.last_name"
+            name="lastName"
+            required
+          />
+          <span *ngIf="errors.last_name" class="text-danger"> {{ errors.last_name }} </span>
         </div>
       </div>
     </div>
 
     <div class="mb-3">
       <label for="email" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="email" />
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        [(ngModel)]="customerData.email"
+        name="email"
+        required
+      />
+      <span *ngIf="errors.email" class="text-danger"> {{ errors.email }} </span>
     </div>
 
     <div class="mb-3">
-      <label for="email" class="form-label">Contact number</label>
-      <input type="email" class="form-control" id="contactNumber" />
+      <label for="contactNumber" class="form-label">Contact number</label>
+      <input
+        type="email"
+        class="form-control"
+        id="contactNumber"
+        [(ngModel)]="customerData.contact_number"
+        name="email"
+      />
+      <span *ngIf="errors.contact_number" class="text-danger"> {{ errors.contact_number }} </span>
     </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>

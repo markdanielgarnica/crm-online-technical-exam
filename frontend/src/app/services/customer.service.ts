@@ -10,7 +10,13 @@ export class CustomerService {
 
   constructor(private http: HttpClient) {}
 
+  // Fetch all customers
   getCustomers(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl);
+  }
+
+  // Create a new customer
+  createCustomer(customerData: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, customerData);
   }
 }
