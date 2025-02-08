@@ -70,10 +70,10 @@ class UserController extends Controller
         }
 
         $validatedData = $request->validate([
-            'first_name' => 'sometimes|string|max:255',
-            'last_name' => 'sometimes|string|max:255',
-            'email' => "sometimes|email|unique:users,email,$id",
-            'contact_number' => 'sometimes|string'
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'email' => "required|email|unique:users,email,$id",
+            'contact_number' => 'nullable|string'
         ]);
 
         $customer->update($validatedData);
